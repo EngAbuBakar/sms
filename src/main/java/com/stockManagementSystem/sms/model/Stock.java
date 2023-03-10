@@ -1,9 +1,9 @@
-package model;
+package com.stockManagementSystem.sms.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -15,5 +15,8 @@ public class Stock {
     private String stockType;
     @Column
     private String stockDetail;
+    @ManyToOne
+    @JoinColumn(name="productId")
+    private List<Product> productStock;
 
 }

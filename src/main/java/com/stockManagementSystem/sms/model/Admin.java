@@ -1,12 +1,13 @@
-package model;
+package com.stockManagementSystem.sms.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Entity
 @Data
+@Table(name = "user")
 public class Admin {
     @Id
     @Column
@@ -17,4 +18,7 @@ public class Admin {
     private String adminEmail;
     @Column
     private String adminAdress;
+    @OneToMany
+    @JoinColumn (name="productId")
+    private Product product;
 }
