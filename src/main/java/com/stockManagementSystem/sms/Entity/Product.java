@@ -1,4 +1,4 @@
-package com.stockManagementSystem.sms.model;
+package com.stockManagementSystem.sms.Entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -10,17 +10,20 @@ import java.util.List;
 @Table(name = "products")
 public class Product {
     @Id
-    @Column
-    private String productID;
+@GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "productId")
+    private Long productID;
     @Column
     private String productTitle;
     @Column
     private String productDesc;
     @Column
     private String producType;
-    @ManyToOne @JoinColumn (name="adminId")
-    private List <Admin>productList;
 
-    @OneToMany @JoinColumn (name="stockId")
+    @Column double price;
+    @OneToOne
     private Stock stock;
+
+    @OneToMany
+    List<ProductSale> productSaleList;
 }
