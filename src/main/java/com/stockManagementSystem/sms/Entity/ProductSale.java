@@ -9,7 +9,7 @@ import lombok.Data;
 public class ProductSale {
     @Id
     @Column
-    private String productSaleId;
+    private Long productSaleId;
     @ManyToOne
     @JoinColumn(name = "productId")
     private Product product;

@@ -22,6 +22,7 @@ public class Product {
 
     @Column double price;
     @OneToOne
+    @JoinColumn(name = "stock_id")
     private Stock stock;
 
     @OneToMany

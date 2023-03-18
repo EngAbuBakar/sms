@@ -14,7 +14,6 @@ public class Stock {
     @Column
     private String stockDetail;
     @OneToOne
-    @JoinColumn(name="productId")
     private Product product;
 
 }

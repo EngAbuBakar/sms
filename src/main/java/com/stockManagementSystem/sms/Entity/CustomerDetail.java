@@ -7,7 +7,7 @@ import java.util.List;
 public class CustomerDetail {
         @Id
     @Column(name = "customerId")
-    private String customerId;
+    private Long customerId;
     @Column
     private String customerName;
     @Column
