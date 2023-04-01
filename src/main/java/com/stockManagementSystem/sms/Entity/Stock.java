@@ -5,15 +5,16 @@ import lombok.Data;
 
 @Entity
 @Data
+@Table(name = "t_stock")
 public class Stock {
     @Id
     @Column
-    private Long stockID;
-    @Column
-    private String stockType;
-    @Column
-    private String stockDetail;
-    @OneToOne
-    private Product product;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    @Column(name = "sku_code")
+    private String skuCode;
+    @Column(name = "st_quantity")
+    private int quantity;
+
 
 }

@@ -3,19 +3,19 @@ package com.stockManagementSystem.sms.controller;
 import com.stockManagementSystem.sms.Entity.Stock;
 import com.stockManagementSystem.sms.service.StockService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class StockController {
+@RequestMapping("/api/stock")
+public class  StockController {
     @Autowired
     StockService stockService;
-    @PostMapping("/stock")
-    private Long saveProduct(@RequestBody Stock stock)
+    @GetMapping("/{sku_code}")
+    @ResponseStatus(HttpStatus.OK)
+    public boolean isInStock(@PathVariable("sku_code")String skuCode)
     {
-        stockService.saveOrUpdate(stock);
-        return stock.getStockID();
+     return stockService.isInStock(skuCode);
     }
 
 }

@@ -16,6 +16,7 @@ public class StockModel {
         this.stockID=stockID;
         this.stockType=stockType;
         this.stockDetail=stockDetail;
+        this.product=product;
 
     }
 }
