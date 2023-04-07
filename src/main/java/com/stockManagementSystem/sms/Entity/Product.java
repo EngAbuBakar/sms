@@ -1,8 +1,10 @@
 package com.stockManagementSystem.sms.Entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
@@ -10,6 +12,8 @@ import java.util.List;
 @Builder
 @Data
 @Table(name = "t_products")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Product {
     @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,15 +23,13 @@ public class Product {
     private String productTitle;
     @Column(name = "product_desc")
     private String productDesc;
-    @Column(name = " produc_type")
-    private String producType;
 
     @Column(name = "p_price")
     private double price;
-   /* @OneToOne
-    @JoinColumn(name = "stock_id")
-    private Stock stock;
-
+    @ManyToOne
+    @JoinColumn(name = "type_id")
+    private ProductType productType;
+/*
     @OneToMany(mappedBy="")
     List<Order> productSaleList;
 

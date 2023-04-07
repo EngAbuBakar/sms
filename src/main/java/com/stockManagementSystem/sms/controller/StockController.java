@@ -1,4 +1,4 @@
-package com.stockManagementSystem.sms.controller;
+/*package com.stockManagementSystem.sms.controller;
 
 import com.stockManagementSystem.sms.Entity.Stock;
 import com.stockManagementSystem.sms.service.StockService;
@@ -19,3 +19,4 @@ public class  StockController {
     }
 
 }
+*/

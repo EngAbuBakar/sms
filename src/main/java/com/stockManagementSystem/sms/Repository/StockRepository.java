@@ -1,4 +1,4 @@
-package com.stockManagementSystem.sms.Repository;
+/*package com.stockManagementSystem.sms.Repository;
 
 import com.stockManagementSystem.sms.Entity.Stock;
 import org.springframework.data.repository.CrudRepository;
@@ -9,3 +9,4 @@ public interface StockRepository extends CrudRepository<Stock,Long> {
 
     Optional<Stock> findByskuCode();
 }
+*/

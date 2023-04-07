@@ -1,8 +1,8 @@
 package com.stockManagementSystem.sms;
 
-import com.stockManagementSystem.sms.Repository.StockRepository;
-import com.stockManagementSystem.sms.service.StockService;
-import org.springframework.boot.CommandLineRunner;
+//import com.stockManagementSystem.sms.Repository.StockRepository;
+//import com.stockManagementSystem.sms.service.StockService;
+//import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;

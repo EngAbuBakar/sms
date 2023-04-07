@@ -14,6 +14,6 @@ public class Order {
     private Long id;
     @Column(name = "order_no")
     private String orderNumer;
-    @OneToMany(mappedBy = "OrderLineItems")
+    @OneToMany(mappedBy = "order")
     private List<OrderLineItems> orderLineItems;
 }

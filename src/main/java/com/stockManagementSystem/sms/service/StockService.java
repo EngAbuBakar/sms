@@ -1,4 +1,4 @@
-package com.stockManagementSystem.sms.service;
+/*package com.stockManagementSystem.sms.service;
 
 import com.stockManagementSystem.sms.Repository.StockRepository;
 import com.stockManagementSystem.sms.Entity.Stock;
@@ -20,3 +20,4 @@ public class StockService {
     }
 
 }
+*/
