@@ -7,45 +7,40 @@ import lombok.*;
 @NoArgsConstructor
 //@Builder
     public class ProductModel {
-        private long Id;
+        private Long id;
         private String productTitle;
         private String productDesc;
-        private String productType;
+        private ProductTypeModel productType;
          double price;
 
-      /*public ProductRequest (Long Id, String productTitle, String productDesc, String productType, double price)
-       {
 
-           this.Id=Id;
-           this.productTitle=productTitle;
-           this.productDesc=productDesc;
-           this.productType=productType;
-           this.price=price;
-       }*/
     public ProductModel(Product product){
         this.setId(product.getId());
         this.setProductDesc(product.getProductDesc());
         this.setProductTitle(product.getProductTitle());
         this.setPrice(product.getPrice());
+        this.setProductType(new ProductTypeModel(product.getProductType()));
     }
 
     public Product dissamble(){
         Product product=new Product();
 
-        product.setId(Id);
+        product.setId(id);
         product.setProductTitle(productTitle);
         product.setProductDesc(productDesc);
         product.setPrice(price);
+        product.setProductType(productType.dissamble());
         return product;
     }
 
     public ProductModel assamble(Product product){
            ProductModel productModel=new ProductModel();
 
-          productModel.setId(this.getId());
-          productModel.setProductTitle(this.getProductTitle());
-          productModel.setProductDesc(this.getProductDesc());
-          productModel.setPrice(this.getPrice());
+          productModel.setId(product.getId());
+          productModel.setProductTitle(product.getProductTitle());
+          productModel.setProductDesc(product.getProductDesc());
+          productModel.setPrice(product.getPrice());
+          productModel.setProductType(new ProductTypeModel(product.getProductType()));
            return productModel;
        }
 

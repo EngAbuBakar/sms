@@ -12,9 +12,9 @@ import org.springframework.stereotype.Service;
 public class ProductTypeService {
     @Autowired
     ProductTypeRepository productTypeRepository;
-    public ProductTypeModel saveProductType(ProductTypeModel productType)
+    public ProductTypeModel saveProductType(ProductTypeModel productTypeModel)
     {
-        return productType.assemble(productTypeRepository.save(productType.dissamble()));
+        return productTypeModel.assemble(productTypeRepository.save(productTypeModel.dissamble()));
 
     }
 

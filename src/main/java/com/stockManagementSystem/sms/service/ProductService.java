@@ -66,4 +66,19 @@ public class ProductService {
         productRepository.deleteById(Id);
         return "product deleted successfully";
     }
+
+    public String updateProduct(ProductModel productModel)
+    {
+        if(productModel.getId()!=null){
+            Product product=productRepository.findById(productModel.getId()).get();
+            if(product!=null){
+                productRepository.save(productModel.dissamble());
+                return "Product Updated successfully";
+            }else{
+                return "Id not found";
+            }
+        }else{
+            return "Id couldn't be null";
+        }
+    }
 }

@@ -29,6 +29,9 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "type_id")
     private ProductType productType;
+
+    @OneToMany(mappedBy = "product")
+    private List<Stock>stocks;
 /*
     @OneToMany(mappedBy="")
     List<Order> productSaleList;

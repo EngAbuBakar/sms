@@ -12,8 +12,10 @@ public class ProductType {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Column(name = "product_type")
+    @Column(name = "pro_type")
     public String type;
     @OneToMany(mappedBy = "productType")
-    private List<Product> productList;
+    private List<Product>  productList;
+    @OneToMany(mappedBy = "productType")
+    private List<Stock>stocks;
 }

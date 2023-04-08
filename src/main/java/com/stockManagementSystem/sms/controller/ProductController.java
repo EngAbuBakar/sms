@@ -2,6 +2,7 @@ package com.stockManagementSystem.sms.controller;
 
 import com.stockManagementSystem.sms.Model.ProductModel;
 import com.stockManagementSystem.sms.service.ProductService;
+import jakarta.persistence.Id;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,9 +19,9 @@ public class ProductController {
 ProductService productService;
 @PostMapping("/save")
 @ResponseStatus(HttpStatus.CREATED)
-public void craeteProduct(@RequestBody ProductModel productRequest)
+public ProductModel craeteProduct(@RequestBody ProductModel productRequest)
 {
-    productService.createProduct(productRequest);
+   return productService.createProduct(productRequest);
 }
      //get all products
 @GetMapping("/getAllProducts")
@@ -37,6 +38,13 @@ public void craeteProduct(@RequestBody ProductModel productRequest)
     {
         return productService.findProduct(Id,null);
     }
+
+    @PutMapping(path = "/update")
+    public String updateProduct(@RequestBody  ProductModel productModel)
+    {
+        return productService.updateProduct(productModel);
+    }
+
 
 
     @DeleteMapping("/delete/{id}")
