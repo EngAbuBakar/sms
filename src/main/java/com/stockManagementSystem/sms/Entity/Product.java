@@ -11,14 +11,14 @@ import java.util.List;
 @Entity
 @Builder
 @Data
-@Table(name = "t_products")
+@Table(name = "product")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Product {
     @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "product_Id")
-    private Long Id;
+    @Column(name = "product_id")
+    private Long id;
     @Column(name = "product_title")
     private String productTitle;
     @Column(name = "product_desc")
@@ -27,16 +27,11 @@ public class Product {
     @Column(name = "p_price")
     private double price;
     @ManyToOne
-    @JoinColumn(name = "type_id")
-    private ProductType productType;
+    @JoinColumn(name = "category_id")
+    private Category category;
 
     @OneToMany(mappedBy = "product")
-    private List<Stock>stocks;
-/*
-    @OneToMany(mappedBy="")
-    List<Order> productSaleList;
-
-    */
+    private List<Stock> stocks;
 
 
 }

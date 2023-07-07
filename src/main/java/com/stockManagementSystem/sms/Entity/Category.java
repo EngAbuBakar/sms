@@ -6,16 +6,16 @@ import lombok.Data;
 import java.util.List;
 
 @Entity
-@Table(name = "product_type")
+@Table(name = "product_category")
 @Data
-public class ProductType {
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "category_id")
     private long id;
-    @Column(name = "pro_type")
+    @Column(name = "pro_category")
     public String type;
-    @OneToMany(mappedBy = "productType")
+    @OneToMany(mappedBy = "category")
     private List<Product>  productList;
-    @OneToMany(mappedBy = "productType")
-    private List<Stock>stocks;
+
 }

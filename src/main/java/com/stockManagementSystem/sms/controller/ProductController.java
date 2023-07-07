@@ -33,10 +33,10 @@ public ProductModel craeteProduct(@RequestBody ProductModel productRequest)
 
 
     //Get product by ID
-    @GetMapping(path = "/id/{Id}" )
-    public List<ProductModel> getCountryById(@PathVariable(value = "Id") Long Id)
+    @GetMapping(path = "/" )
+    public List<ProductModel> getCountryById(@RequestParam(name = "id",required = false)Long Id,@RequestParam(name = "title",required = false)String title)
     {
-        return productService.findProduct(Id,null);
+        return productService.findProduct(Id,title);
     }
 
     @PutMapping(path = "/update")

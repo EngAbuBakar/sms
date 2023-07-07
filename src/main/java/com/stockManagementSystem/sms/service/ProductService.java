@@ -30,25 +30,15 @@ public class ProductService {
 
     public List<ProductModel> findProduct(Long Id, String productTitle)
     {
-        List<ProductModel> ProductModels = new ArrayList<>();
+        List<ProductModel> ProductModels;
         if(Id != null)
         {
-            ProductModels = List.of(productRepository.findAll()
-                    .stream()
-                    .map(ProductModel::new)
-                    .filter(productModel -> productModel.getId()==Id)
-                    .findFirst()
-                    .get());
+            ProductModels = productRepository.findById(Id).stream().map(ProductModel::new).collect(Collectors.toList());
 
         }
         else if(productTitle != null)
         {
-            ProductModels = List.of(productRepository.findAll()
-                    .stream()
-                    .map(ProductModel::new)
-                    .filter(ProductModel -> ProductModel.getProductTitle().equalsIgnoreCase(productTitle))
-                    .findFirst()
-                    .get());
+            ProductModels = productRepository.findProductByProductTitle(productTitle).stream().map(ProductModel::new).collect(Collectors.toList());
 
         }
         else
@@ -70,8 +60,7 @@ public class ProductService {
     public String updateProduct(ProductModel productModel)
     {
         if(productModel.getId()!=null){
-            Product product=productRepository.findById(productModel.getId()).get();
-            if(product!=null){
+            if(productRepository.existsById(productModel.getId())){
                 productRepository.save(productModel.dissamble());
                 return "Product Updated successfully";
             }else{

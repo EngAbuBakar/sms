@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "t_stock")
+@Table(name = "stock")
 public class Stock {
     @Id
     @Column(name = "stock_id")
@@ -13,14 +13,10 @@ public class Stock {
     private Long id;
 
     @Column(name = "st_quantity")
-    private int quantity;
+    private Long quantity;
     @ManyToOne
     @JoinColumn(name = "product_Id")
     private Product product;
-
-    @ManyToOne
-    @JoinColumn(name = "type_id")
-    private ProductType productType;
 
 
 

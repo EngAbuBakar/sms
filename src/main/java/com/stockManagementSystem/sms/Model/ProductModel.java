@@ -10,8 +10,8 @@ import lombok.*;
         private Long id;
         private String productTitle;
         private String productDesc;
-        private ProductTypeModel productType;
-         double price;
+        private CategoryModel categoryModel;
+        private double price;
 
 
     public ProductModel(Product product){
@@ -19,7 +19,7 @@ import lombok.*;
         this.setProductDesc(product.getProductDesc());
         this.setProductTitle(product.getProductTitle());
         this.setPrice(product.getPrice());
-        this.setProductType(new ProductTypeModel(product.getProductType()));
+        this.setCategoryModel(new CategoryModel(product.getCategory()));
     }
 
     public Product dissamble(){
@@ -29,7 +29,7 @@ import lombok.*;
         product.setProductTitle(productTitle);
         product.setProductDesc(productDesc);
         product.setPrice(price);
-        product.setProductType(productType.dissamble());
+        product.setCategory(categoryModel.dissamble());
         return product;
     }
 
@@ -40,7 +40,7 @@ import lombok.*;
           productModel.setProductTitle(product.getProductTitle());
           productModel.setProductDesc(product.getProductDesc());
           productModel.setPrice(product.getPrice());
-          productModel.setProductType(new ProductTypeModel(product.getProductType()));
+          productModel.setCategoryModel(new CategoryModel(product.getCategory()));
            return productModel;
        }
 

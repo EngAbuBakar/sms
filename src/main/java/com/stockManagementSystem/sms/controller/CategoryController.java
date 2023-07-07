@@ -1,8 +1,7 @@
 package com.stockManagementSystem.sms.controller;
 
-import com.stockManagementSystem.sms.Model.ProductTypeModel;
-import com.stockManagementSystem.sms.Repository.ProductTypeRepository;
-import com.stockManagementSystem.sms.service.ProductTypeService;
+import com.stockManagementSystem.sms.Model.CategoryModel;
+import com.stockManagementSystem.sms.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,12 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/productType")
-public class ProductTypeController {
+public class CategoryController {
     @Autowired
-    ProductTypeService productTypeService;
+    CategoryService categoryService;
     @PostMapping("/save")
-    public ProductTypeModel saveProductType(@RequestBody ProductTypeModel productTypeModel)
+    public String saveProductType(@RequestBody CategoryModel categoryModel)
     {
-        return productTypeService.saveProductType(productTypeModel);
+        return categoryService.save(categoryModel);
     }
 }
